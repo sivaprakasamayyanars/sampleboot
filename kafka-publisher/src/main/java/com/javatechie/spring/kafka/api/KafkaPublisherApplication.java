@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class KafkaPublisherApplication {
+public class KafkaPublisherApplication
+{
 
 	@Autowired
 	private KafkaTemplate<String, Object> template;
@@ -18,7 +19,8 @@ public class KafkaPublisherApplication {
 	private String topic = "javatechie";
 
 	@GetMapping("/publish/{name}")
-	public String publishMessage(@PathVariable String name) {
+	public String publishMessage(@PathVariable String name)
+	{
 		template.send(topic, "Hi " + name + " Welcome to java techie");
 		return "Data published";
 	}
